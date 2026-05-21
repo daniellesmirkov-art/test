@@ -1,0 +1,36 @@
+<html>
+<head>
+    <title>A-Frame Cross-Section Component: Example Scene</title>
+    <script src='https://aframe.io/releases/1.3.0/aframe.min.js'></script>
+    <script src="js/cross-section-component.js"></script>
+
+
+  <script src="lib/RGBELoader.js"></script>
+
+  <script src="components/aframe-orbit-controls.js"></script>
+  <script src="components/aframe-env-map-component.js"></script>
+  <script src="components/aframe-hdr-environment.js"></script>
+
+
+</head>
+<body>
+    <!-- <a-scene gltf-model="dracoDecoderPath: decoder/"> -->
+
+ <a-scene  gltf-model="dracoDecoderPath: decoder/" light="defaultLightsEnabled: false" hdr-environment="url: images/venice_sunset_1k.hdr; showBackground: true; showGround: true; groundSize: 15">
+
+        <a-assets>
+            <a-asset-item id="room" src="3dModel/building.glb"></a-asset-item>
+        </a-assets>
+        <a-entity class="clickable" cross-section gltf-model="#room" rotation="0 180 0" position="0 -1.5 -3"
+            scale="0.02 0.02 0.02">
+        </a-entity>
+        <a-sky color="#ECECEC"></a-sky>
+        <a-entity cursor="rayOrigin: mouse" raycaster="objects: .clickable;"></a-entity>
+        <a-entity class="controller" laser-controls="hand: left" raycaster="objects: .clickable;" line="color: #000000">
+        </a-entity>
+        <a-entity class="controller" laser-controls="hand: right" raycaster="objects: .clickable;"
+            line="color: #000000">
+        </a-entity>
+    </a-scene>
+</body>
+</html>
